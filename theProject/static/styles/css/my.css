@@ -4,5 +4,10 @@
   text-align: center;
 }
 h3 {
-  color: crimson;
+  color: hsl(253, 83%, 47%);
+}
+
+.title {
+  text-align: center;
+  color: blueviolet;
 }

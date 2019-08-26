@@ -3,5 +3,7 @@
 node_modules/
 .vscode
 dist/
+build/
 public/
+__pycache__
 .venv/
