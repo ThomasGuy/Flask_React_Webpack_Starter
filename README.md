@@ -13,6 +13,8 @@ pip install -r requirements.txt
 
 from 'theProject' directory
 
+npm install
+
 npm run build:dev
 
 npm run start
