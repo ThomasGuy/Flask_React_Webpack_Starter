@@ -6,9 +6,9 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 // const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  entry: "./theProject/static/js/main.jsx",
+  entry: "./theProject/client/static/js/main.jsx",
   output: {
-    path: path.resolve(__dirname, "../theProject/static/dist"),
+    path: path.resolve(__dirname, "../theProject/client/static/dist"),
     filename: "js/[name].js",
     sourceMapFilename: "js/[name].js.map",
   },
@@ -43,11 +43,11 @@ module.exports = {
 
   resolve: {
     alias: {
-      "@scss": path.resolve(__dirname, "../theProject/static/styles/scss"),
-      "@img": path.resolve(__dirname, "../theProject/static/assets/images"),
-      "@": path.resolve(__dirname, "../theProject/static"),
+      "@scss": path.resolve(__dirname, "../theProject/client/static/styles/scss"),
+      "@img": path.resolve(__dirname, "../theProject/client/static/assets/images"),
+      "@": path.resolve(__dirname, "../theProject/client/static"),
     },
-    modules: ["node_modules", path.resolve(__dirname, "theProject")],
+    modules: ["node_modules", path.resolve(__dirname, "theProject/client")],
     extensions: [".js", ".jsx"],
   },
 
@@ -66,7 +66,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin([
       {
-        from: "./theProject/static/assets/images",
+        from: "./theProject/client/static/assets/images",
         to: "assets/images",
       },
     ]),

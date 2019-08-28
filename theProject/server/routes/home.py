@@ -1,5 +1,5 @@
 from flask import render_template, Blueprint
-from theProject.api.getData import getData
+from theProject.server.api.getData import getData
 
 bp = Blueprint('home', __name__)
 

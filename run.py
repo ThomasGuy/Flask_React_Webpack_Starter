@@ -1,10 +1,10 @@
-from theProject import create_app
-from flask_cors import CORS, cross_origin
+from theProject.server import create_app
+from flask import Flask
+import config
 
-app = create_app()
-CORS(app, origins="http://localhost:5000", allow_headers=[
-    "Content-Type", "Authorization", "Access-Control-Allow-Credentials"],
-    supports_credentials=True, intercept_exceptions=False)
+app = create_app(config.DevConfig)
+
 
 if __name__ == "__main__":
-    app.run(host='localhost', port=5000, debug=True)
+    print(app.instance_path)
+    app.run(host='localhost', port=5000)
