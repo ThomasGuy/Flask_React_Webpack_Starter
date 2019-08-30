@@ -22,10 +22,11 @@ def create_app(Config):
     red.init_app(app)
 
     with app.app_context():
-        # Include our Routes
-        from theProject.server.routes import home
-
-        # Register Blueprints
-        app.register_blueprint(home.bp)
+        from theProject.server.routes import bp as home_bp
+        app.register_blueprint(home_bp)
+        from theProject.server.data import bp as data_bp
+        app.register_blueprint(data_bp)
+        from theProject.server.errors import err
+        app.register_blueprint(err)
 
         return app

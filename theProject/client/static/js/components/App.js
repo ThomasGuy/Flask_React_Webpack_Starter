@@ -1,9 +1,6 @@
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable react/destructuring-assignment */
 import React from "react";
 // import webpackgif from "../../assets/images/webpack.gif";
 
-// eslint-disable-next-line react/prefer-stateless-function
 class App extends React.Component {
   constructor(props) {
     super(props);

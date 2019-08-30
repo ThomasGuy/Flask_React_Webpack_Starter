@@ -2,7 +2,6 @@ import React from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import FrontPage from "./FrontPage";
-// import App from "./App";
 import NotFound from "./NotFound";
 
 const Router = () => (

@@ -7,8 +7,11 @@
     "build:dev": "cross-env NODE_ENV=development webpack --mode development",
     "build:prod": "cross-env NODE_ENV=production webpack --mode production",
     "start": "webpack-dev-server --mode development",
-    "clean": "rmdir /s /q node_modules",
-    "reinstall": "npm run clean && npm install"
+    "watch": "webpack -w --mode development",
+    "serve": "npm run watch && npm run start",
+    "cleanWin": "rmdir /s /q node_modules",
+    "cleanUnix": "rm -rf node_modules/",
+    "reinstall": "npm run cleanUnix && npm install"
   },
   "keywords": [],
   "author": "",
