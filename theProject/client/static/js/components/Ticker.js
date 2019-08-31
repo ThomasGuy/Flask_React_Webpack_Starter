@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/require-default-props */
 import React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import Coin from "./Coin";
 
 const Ticker = ({ items }) => (
-  <div className="sport">
+  <div className="sport2">
     <h2>Tickers</h2>
     <div className="fishes">
       <ul className="tickList">
@@ -17,8 +17,9 @@ const Ticker = ({ items }) => (
   </div>
 );
 
-// Ticker.propTypes = {
-//   items: PropTypes.object,
-// };
+Ticker.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  items: PropTypes.object,
+};
 
 export default Ticker;

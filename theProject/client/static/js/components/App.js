@@ -1,3 +1,4 @@
+/* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/state-in-constructor */
 import React from "react";
 import Ticker from "./Ticker";
@@ -6,7 +7,7 @@ class App extends React.Component {
   state = {
     error: null,
     isLoaded: false,
-    items: {},
+    tickers: {},
   };
 
   componentDidMount() {
@@ -16,20 +17,20 @@ class App extends React.Component {
       })
       .then((myJson) => {
         this.setState({ isLoaded: true });
-        this.setState({ items: myJson });
-        // this.setState({ items: myJson });
+        this.setState({ tickers: myJson });
+        // this.setState({ tickers: myJson });
         console.log("Ahoy", JSON.stringify(myJson));
       });
   }
 
   addCoins = (coin) => {
-    const coins = { ...this.state.items };
+    const coins = { ...this.state.tickers };
     coins[coin.key()] = coin.value();
-    this.setState({ coins });
+    this.setState({ tickers: coins });
   };
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded, tickers } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     }
@@ -38,7 +39,7 @@ class App extends React.Component {
     }
     return (
       <div>
-        <Ticker items={items} />
+        <Ticker items={tickers} />
       </div>
     );
   }
