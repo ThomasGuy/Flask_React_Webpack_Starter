@@ -39,7 +39,7 @@ class App extends React.Component {
     }
     return (
       <div>
-        <Ticker items={tickers} />
+        <Ticker tickers={tickers} />
       </div>
     );
   }

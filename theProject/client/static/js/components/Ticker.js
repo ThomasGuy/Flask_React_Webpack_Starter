@@ -4,13 +4,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import Coin from "./Coin";
 
-const Ticker = ({ items }) => (
+const Ticker = ({ tickers }) => (
   <div className="sport2">
     <h2>Tickers</h2>
     <div className="fishes">
       <ul className="tickList">
-        {Object.keys(items).map((key) => (
-          <Coin key={key} aKey={key} aValue={items[key]} />
+        {Object.keys(tickers).map((key) => (
+          <Coin key={key} aKey={key} aValue={tickers[key]} />
         ))}
       </ul>
     </div>
@@ -19,7 +19,7 @@ const Ticker = ({ items }) => (
 
 Ticker.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
-  items: PropTypes.object,
+  tickers: PropTypes.object,
 };
 
 export default Ticker;

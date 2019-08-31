@@ -2,7 +2,8 @@ import requests
 from flask import jsonify
 
 url = 'https://api-pub.bitfinex.com/v2/tickers?'\
-        'symbols=tBTCUSD,tLTCUSD,tETHUSD,tXRPUSD'
+        'symbols=tBTCUSD,tLTCUSD,tETHUSD,tXRPUSD,'\
+            'tNEOUSD,tEOSUSD,tBSVUSD,tIOTUSD'
 
 
 def getData():
