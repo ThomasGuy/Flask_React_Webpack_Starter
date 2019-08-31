@@ -11,11 +11,11 @@ npm run build:dev
 
 ### starts webpack dev server for client, this poxies output to flask server
 ### http:/localhost:5000
-npm run start
+npm run serve
 
 
 ### in another terminal to start Flask, setup python virtual enviroment:-
-python -m venv .venv
+python -m venv myenv
 
 ### activate it, then:-
 pip install -r requirements.txt
