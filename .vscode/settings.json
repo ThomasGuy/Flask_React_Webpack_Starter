@@ -1,6 +1,11 @@
 {
+<<<<<<< HEAD
     "python.venvPath": "${workspceFolder}\\.venv",
     "python.pythonPath": "venv/bin/python",
+=======
+    "python.venvPath": "${workspceFolder}/venv",
+    "python.pythonPath": "venv/bin/python3.7",
+>>>>>>> ticker
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     "editor.formatOnSave": false

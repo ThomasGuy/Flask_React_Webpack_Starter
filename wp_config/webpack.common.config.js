@@ -3,7 +3,7 @@ const path = require("path");
 // const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-// const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./theProject/client/static/js/main.jsx",
@@ -70,6 +70,8 @@ module.exports = {
         to: "assets/images",
       },
     ]),
-    // new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: true,
+    }),
   ],
 };

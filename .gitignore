@@ -1,8 +1,15 @@
 .DS_Store
 .git/
+__pycache__
+*.pyc
+
+venv/
 node_modules/
-dist/
 build/
+dist/
 public/
+<<<<<<< HEAD
 __pycache__
 venv/
+=======
+>>>>>>> ticker
