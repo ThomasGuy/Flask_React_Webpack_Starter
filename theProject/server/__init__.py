@@ -28,5 +28,8 @@ def create_app(Config):
         app.register_blueprint(data_bp)
         from theProject.server.errors import err
         app.register_blueprint(err)
+        from theProject.server.tickers import bp as ticker_bp
+        app.register_blueprint(ticker_bp)
+
 
         return app

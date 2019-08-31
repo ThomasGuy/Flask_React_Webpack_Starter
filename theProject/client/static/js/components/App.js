@@ -1,15 +1,32 @@
+/* eslint-disable react/state-in-constructor */
 import React from "react";
-// import webpackgif from "../../assets/images/webpack.gif";
+import Ticker from "./Ticker";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: null,
-      isLoaded: false,
-      items: [],
-    };
+  state = {
+    error: null,
+    isLoaded: false,
+    items: {},
+  };
+
+  componentDidMount() {
+    fetch("http://localhost:5000/api/data")
+      .then((response) => {
+        return response.json();
+      })
+      .then((myJson) => {
+        this.setState({ isLoaded: true });
+        this.setState({ items: myJson });
+        // this.setState({ items: myJson });
+        console.log("Ahoy", JSON.stringify(myJson));
+      });
   }
+
+  addCoins = (coin) => {
+    const coins = { ...this.state.items };
+    coins[coin.key()] = coin.value();
+    this.setState({ coins });
+  };
 
   render() {
     const { error, isLoaded, items } = this.state;
@@ -21,7 +38,7 @@ class App extends React.Component {
     }
     return (
       <div>
-        <p>Reactin here</p>
+        <Ticker items={items} />
       </div>
     );
   }

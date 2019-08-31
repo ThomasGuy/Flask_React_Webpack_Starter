@@ -1,8 +1,10 @@
 .DS_Store
 .git/
-node_modules/
-dist/
-build/
-public/
 __pycache__
+*.pyc
+
 venv/
+node_modules/
+build/
+dist/
+public/

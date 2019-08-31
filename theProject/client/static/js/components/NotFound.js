@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const NotFound = () => (
   <div>
-    <h2>Not Found from Flask Api</h2>
+    <h2>Not Found from React Router</h2>
   </div>
-)
+);
 
 export default NotFound;
