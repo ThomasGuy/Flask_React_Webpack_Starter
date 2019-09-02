@@ -24,7 +24,21 @@ module.exports = {
       },
       {
         test: [/.css$|.scss$/],
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              sourcemap: true,
+              // only enable hot in development
+              hmr: process.env.NODE_ENV === "development",
+              // if hmr does not work, this is a forceful method.
+              reloadAll: true,
+            },
+          },
+          "css-loader",
+          "postcss-loader",
+          "sass-loader",
+        ],
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg|ico)$/,

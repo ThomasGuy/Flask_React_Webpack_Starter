@@ -1,9 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import merge from "webpack-merge";
-import UglifyJsPlugin from "uglifyjs-webpack-plugin";
-import OptimizeCSSAssetsPlugin from "optimize-css-assets-webpack-plugin";
-import CleanWebpackPlugin from "clean-webpack-plugin";
-import webpackBaseConfig from "./webpack.common.config";
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const merge = require("webpack-merge");
+const webpackBaseConfig = require("./webpack.common.config");
 
 module.exports = merge(webpackBaseConfig, {
   devtool: "eval",

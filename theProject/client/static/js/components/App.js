@@ -16,10 +16,8 @@ class App extends React.Component {
         return response.json();
       })
       .then((myJson) => {
-        this.setState({ isLoaded: true });
         this.setState({ tickers: myJson });
-        // this.setState({ tickers: myJson });
-        console.log("Ahoy", JSON.stringify(myJson));
+        this.setState({ isLoaded: true });
       });
   }
 
