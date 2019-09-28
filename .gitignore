@@ -2,14 +2,11 @@
 .git/
 __pycache__
 *.pyc
+.vscode
 
-venv/
+venv
 node_modules/
 build/
 dist/
 public/
-<<<<<<< HEAD
-__pycache__
-venv/
-=======
->>>>>>> ticker
+logs/
