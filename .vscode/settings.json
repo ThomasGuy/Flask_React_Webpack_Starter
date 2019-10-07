@@ -1,6 +1,6 @@
 {
     "python.venvPath": "${workspceFolder}/venv",
-    "python.pythonPath": "venv/bin/python3",
+    "python.pythonPath": "venv/bin/python",
     "python.linting.enabled": true,
     "python.linting.pylintEnabled": true,
     "editor.formatOnSave": true,

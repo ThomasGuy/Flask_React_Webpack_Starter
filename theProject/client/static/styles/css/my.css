@@ -1,11 +1,15 @@
 .sport {
-  font-size: 3rem;
+  font-size: 2rem;
   color: aquamarine;
   text-align: center;
+  h1 {
+    color: #BADA55;
+  }
 }
-h3 {
-  color: hsl(253, 83%, 47%);
+h3, h2 {
+  color: hsl(216, 85%, 40%);
 }
+
 
 .title {
   text-align: center;

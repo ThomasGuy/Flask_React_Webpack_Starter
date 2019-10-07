@@ -1,6 +1,7 @@
 /* eslint-disable react/no-access-state-in-setstate */
 /* eslint-disable react/state-in-constructor */
 import React from "react";
+import openSocket from 'socket.io-client';
 import Ticker from "./Ticker";
 
 class App extends React.Component {
@@ -8,6 +9,7 @@ class App extends React.Component {
     error: null,
     isLoaded: false,
     tickers: {},
+
   };
 
   componentDidMount() {

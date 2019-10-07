@@ -8,9 +8,9 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
   entry: "./theProject/client/static/js/main.jsx",
   output: {
-    path: path.resolve(__dirname, "../theProject/client/static/dist"),
+    path: path.resolve(__dirname, "../theProject/client/dist/"),
     filename: "js/[name].js",
-    sourceMapFilename: "js/[name].js.map",
+    // sourceMapFilename: "js/[name].js.map",
   },
 
   module: {
@@ -47,7 +47,7 @@ module.exports = {
             loader: "file-loader",
             options: {
               name: "[name].[ext]",
-              outputPath: "assets/images",
+              outputPath: "assets/images/",
             },
           },
         ],
