@@ -5,8 +5,8 @@ __pycache__
 .vscode
 
 venv
-node_modules/
-build/
-dist/
-public/
+node_modules
+build
+dist
+public
 logs/

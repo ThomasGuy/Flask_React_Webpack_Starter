@@ -13,7 +13,7 @@ module.exports = merge(webpackBaseConfig, {
     watchContentBase: true,
     port: 9001,
     proxy: {
-      "!(/static/dist/**/**.*)": {
+      "!(/dist/**/**.*)": {
         target: "http://localhost:5000/",
       },
     },

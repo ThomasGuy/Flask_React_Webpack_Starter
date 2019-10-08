@@ -5,12 +5,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
+const isDevelopment = process.env.NODE_ENV === 'development';
+
 module.exports = {
   entry: "./theProject/client/static/js/main.jsx",
   output: {
-    path: path.resolve(__dirname, "../theProject/client/dist/"),
+    path: path.resolve(__dirname, "../theProject/client/dist"),
     filename: "js/[name].js",
-    // sourceMapFilename: "js/[name].js.map",
   },
 
   module: {
@@ -23,25 +24,42 @@ module.exports = {
         },
       },
       {
-        test: [/.css$|.scss$/],
-        use: [
+        test: /\.module\.s(a|c)ss$/,
+        loader: [
+          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: 'css-loader',
             options: {
-              sourcemap: true,
-              // only enable hot in development
-              hmr: process.env.NODE_ENV === "development",
-              // if hmr does not work, this is a forceful method.
-              reloadAll: true,
-            },
+              modules: true,
+              sourceMap: isDevelopment,
+            }
           },
-          "css-loader",
-          "postcss-loader",
-          "sass-loader",
-        ],
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: isDevelopment,
+              // hmr: isDevelopment,
+            }
+          }
+        ]
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
+        test: /\.s(a|c)ss$/,
+        exclude: /\.module.(s(a|c)ss)$/,
+        loader: [
+          isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: isDevelopment,
+              // hmr: isDevelopment,
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|ico)$/,
         use: [
           {
             loader: "file-loader",
@@ -52,12 +70,24 @@ module.exports = {
           },
         ],
       },
+      // loaders: [
+      // the url-loader uses DataUrls. 
+      // the file-loader emits files. 
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url-loader?limit=10000&mimetype=application/font-woff"
+      },
+      {
+        test: /\.(ttf|eot|svg|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "file-loader"
+      },
+      // ]
     ],
   },
 
   resolve: {
     alias: {
-      "@scss": path.resolve(__dirname, "../theProject/client/static/styles/scss"),
+      "@scss": path.resolve(__dirname, "../theProject/client/static/stylesheets"),
       "@img": path.resolve(__dirname, "../theProject/client/static/assets/images"),
       "@": path.resolve(__dirname, "../theProject/client/static"),
     },
@@ -76,7 +106,9 @@ module.exports = {
     //   },
     // }),
     new MiniCssExtractPlugin({
-      filename: "./styles/main.css",
+      filename: '[name].css',
+      // filename: isDevelopment ? '[name].css' : '[name].[hash].css',
+      chunkFilename: isDevelopment ? '[id].css' : '[id].[hash].css'
     }),
     new CopyWebpackPlugin([
       {

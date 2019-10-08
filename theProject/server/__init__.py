@@ -10,7 +10,7 @@ def create_app(Config):
     """Initialize the core application."""
     app = Flask(__name__,
                 instance_relative_config=False,
-                static_folder='../../theProject/client',
+                static_folder='../../theProject/client/dist',
                 )
     app.config.from_object(Config)
 
